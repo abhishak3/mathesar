@@ -12,6 +12,7 @@
     faICursor,
     faKey,
     faLink,
+    faWrench,
   } from '@fortawesome/free-solid-svg-icons';
   import { States } from '@mathesar/utils/api';
   import {
@@ -33,6 +34,7 @@
   // import DisplayGroup from '@mathesar/sections/table-view/display-options/DisplayGroup.svelte';
   import Sort from './record-operations/Sort.svelte';
   import Filter from './record-operations/Filter.svelte';
+  import TableSettingsModal from '@mathesar/sections/table-view/settings/TableSettingsModal.svelte';
   import RenameTableModal from './RenameTableModal.svelte';
   import type { ProcessedTableColumnMap } from '../utils';
 
@@ -40,6 +42,7 @@
 
   const tableConstraintsModal = modal.spawnModalController();
   const linkTableModal = modal.spawnModalController();
+  const tableSettingsModal = modal.spawnModalController();
   const tableRenameModal = modal.spawnModalController();
 
   export let processedTableColumnsMap: ProcessedTableColumnMap;
@@ -101,9 +104,17 @@
     >
       Constraints
     </MenuItem>
+    <MenuItem
+      on:click={() => tableSettingsModal.open()}
+      icon={{ data: faWrench }}
+    >
+      Settings
+    </MenuItem>
   </DropdownMenu>
 
   <TableConstraints controller={tableConstraintsModal} />
+
+  <TableSettingsModal controller={tableSettingsModal} />
 
   <RenameTableModal controller={tableRenameModal} tabularData={$tabularData} />
 
