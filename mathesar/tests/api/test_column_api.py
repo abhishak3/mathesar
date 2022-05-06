@@ -341,7 +341,7 @@ def test_column_create_wrong_display_options(
     "type_,type_options,expected_type_options",
     [
         ("NUMERIC", {"precision": 5, "scale": 3}, {"precision": 5, "scale": 3}),
-        ("NUMERIC", {"scale": 3}, {"precision": 1000, "scale": 3}),
+        ("NUMERIC", None, {"precision": 1000, "scale": 3}),
         ("VARCHAR", {"length": 5}, {"length": 5}),
         ("CHAR", {"length": 5}, {"length": 5}),
         ("INTERVAL", {"precision": 5}, {"precision": 5}),

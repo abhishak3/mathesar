@@ -13,6 +13,10 @@ DB_TYPE = base.get_qualified_name(MATHESAR_MONEY)
 
 class MathesarMoney(UserDefinedType):
 
+    def __init__(self):
+        self.precision = 1000
+        self.scale = 2
+
     def get_col_spec(self, **_):
         return DB_TYPE.upper()
 
@@ -22,7 +26,7 @@ def install(engine):
     DROP DOMAIN IF EXISTS {DB_TYPE};
     """
     create_domain_query = f"""
-    CREATE DOMAIN {DB_TYPE} AS NUMERIC;
+    CREATE DOMAIN {DB_TYPE} AS NUMERIC(1000, 2);
     """
 
     with engine.begin() as conn:
