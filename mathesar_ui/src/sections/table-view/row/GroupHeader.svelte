@@ -3,6 +3,7 @@
   import { ROW_CONTROL_COLUMN_WIDTH } from '@mathesar/stores/table-data';
   import type { Row } from '@mathesar/stores/table-data/types';
   import CellValue from '@mathesar/components/CellValue.svelte';
+  import CellBackground from './CellBackground.svelte';
 
   export let row: Row;
   export let grouping: Grouping;
@@ -18,7 +19,9 @@
 <div
   class="cell row-control group-control"
   style="width:{ROW_CONTROL_COLUMN_WIDTH}px;left:0px"
-/>
+>
+  <CellBackground color="var(--cell-bg-color-header)" />
+</div>
 
 <div
   class="cell groupheader"

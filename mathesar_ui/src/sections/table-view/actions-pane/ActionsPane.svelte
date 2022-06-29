@@ -30,9 +30,9 @@
   import { modal } from '@mathesar/stores/modal';
   import LinkTableModal from '@mathesar/sections/table-view/link-table/LinkTableModal.svelte';
   import TableConstraints from '@mathesar/sections/table-view/constraints/TableConstraints.svelte';
-  // import DisplayGroup from '@mathesar/sections/table-view/display-options/DisplayGroup.svelte';
   import Sort from './record-operations/Sort.svelte';
   import Filter from './record-operations/Filter.svelte';
+  import Group from './record-operations/Group.svelte';
   import RenameTableModal from './RenameTableModal.svelte';
   import type { ProcessedTableColumnMap } from '../utils';
 
@@ -155,7 +155,7 @@
       </span>
     </svelte:fragment>
     <svelte:fragment slot="content">
-      <!-- <DisplayGroup {columns} grouping={meta.grouping} /> -->
+      <Group {columns} grouping={meta.grouping} />
     </svelte:fragment>
   </Dropdown>
 
